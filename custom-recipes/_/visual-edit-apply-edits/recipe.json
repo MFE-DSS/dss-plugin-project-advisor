@@ -1,0 +1,45 @@
+{
+    "meta": {
+        "label": "Apply edits",
+        "description": "Copy the original dataset and override cells with values coming from the edits dataset.",
+        "icon": "icon-plus"
+    },
+    "kind": "PYTHON",
+    "inputRoles": [
+        {
+            "name": "original",
+            "label": "Original dataset",
+            "description": "Dataset made available to the Visual Edit functionality",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        },
+        {
+            "name": "edits",
+            "label": "Edits to apply",
+            "description": "Dataset of edits created by the 'replay-edits' recipe on an editlog",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+    "outputRoles": [
+        {
+            "name": "edited",
+            "label": "Edited dataset",
+            "description": "",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+    "params": [
+        {
+            "name": "sep",
+            "label": "⚠️ DO NOT EDIT THIS RECIPE",
+            "description": "This recipe is controlled by a Visual Edit webapp (see URL in the recipe details, by clicking on the (i) icon in the vertical menu bar on the right-hand side).",
+            "type": "SEPARATOR"
+        }
+    ],
+    "resourceKeys": []
+}

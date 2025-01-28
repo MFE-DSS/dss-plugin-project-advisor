@@ -1,0 +1,37 @@
+{
+    "meta": {
+        "label": "Replay edits",
+        "description": "Create a dataset of edited cells from the raw event log maintained by the Visual Edit functionality. When the same cell was edited multiple times, the last edit is kept.",
+        "icon": "icon-repeat"
+    },
+    "kind": "PYTHON",
+    "inputRoles": [
+        {
+            "name": "editlog",
+            "label": "Edit log",
+            "description": "Managed by the Visual Edit functionality",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+    "outputRoles": [
+        {
+            "name": "edits",
+            "label": "Edits",
+            "description": "Dataset of edits, containing the edited rows and editable columns",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+    "params": [
+        {
+            "name": "sep",
+            "label": "⚠️ DO NOT EDIT THIS RECIPE",
+            "description": "This recipe is controlled by a Visual Edit webapp (see URL in the recipe details, by clicking on the (i) icon in the vertical menu bar on the right-hand side).",
+            "type": "SEPARATOR"
+        }
+    ],
+    "resourceKeys": []
+}
