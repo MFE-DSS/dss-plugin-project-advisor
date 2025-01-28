@@ -1,0 +1,101 @@
+/* This file is the descriptor for the parameter set Global Advisor Setting */
+{
+    "meta": {
+        "label": "Project Checks Config",
+        "description": "Configurable Project Check Settings",
+        "icon": "icon-file-text"
+    },
+
+    "defaultDefinableInline": true,
+
+    "defaultDefinableAtProjectLevel": true,
+
+    "params": [
+        {
+            "name": "logging_level",
+            "label": "Logging Level",
+            "description": "Level of detail for logging",
+            "type": "SELECT",
+            "defaultValue": "WARNING",
+            "selectChoices": [
+                                { "value": "CRITICAL", "label": "CRITICAL"},
+                                {"value": "ERROR","label": "ERROR"},
+                                {"value": "WARNING","label": "WARNING"},
+                                {"value": "INFO","label": "INFO"},
+                                {"value": "DEBUG","label": "DEBUG"}
+                            ],
+            "mandatory": true
+        },
+        {
+            "name": "max_datasets_per_flow_zone",
+            "label": "Max datasets in Flow Zone",
+            "type": "INT",
+            "defaultValue": 50,
+            "description": "Max number of datasets in a Flow Zone OR in the Flow when no Flow Zones",
+            "mandatory": true
+        },
+        {
+            "name": "max_datasets_per_flow",
+            "label": "Max datasets in the a Flow",
+            "type": "INT",
+            "defaultValue": 200,
+            "description": "Max number of dataset in the whole Flow",
+            "mandatory": true
+        },
+        {
+            "name": "max_nbr_row_python_recipe",
+            "label": "Max rows in python recipe",
+            "type": "INT",
+            "defaultValue": 200,
+            "description": "Max rows in python recipe",
+            "mandatory": true
+        },
+        {
+            "name": "max_nbr_row_python_webapp",
+            "label": "Max rows in python webapp",
+            "type": "INT",
+            "defaultValue": 300,
+            "description": "Max rows in python webapp",
+            "mandatory": true
+        },
+        {
+            "name": "max_nbr_steps_in_scenarios",
+            "label": "Max number of scenario steps",
+            "type": "INT",
+            "defaultValue": 20,
+            "description": "Max number of steps in any scenario",
+            "mandatory": true
+        },
+        {
+            "name": "max_groups_users_sharing",
+            "label": "Max number of groups and users",
+            "type": "INT",
+            "defaultValue": 10,
+            "description": "Max number of groups and users to share a project with",
+            "mandatory": true
+        },
+        {    
+            "name": "max_nbr_top_level_steps_prepare_recipe",
+            "label": "Max number of top level steps in prepare recipe",
+            "type": "INT",
+            "defaultValue": 20,
+            "description": "Max number of top level steps in prepare recipe",
+            "mandatory": true
+        },
+        {    
+            "name": "min_scenario_trigger_time_period",
+            "label": "Min Scenario Trigger time check (minutes)",
+            "type": "INT",
+            "defaultValue": 5,
+            "description": "Minimum time between sceanrio triggers for Time Based Triggers (minutes)",
+            "mandatory": true
+        },
+        {
+            "name": "critical_project_check_list",
+            "label": "Critical Project Check List",
+            "type": "STRINGS",
+            "description": "Return an ERROR status when any of these checks fail",
+            "mandatory": true
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+/* This file is the descriptor for the parameter set check-filter */
+{
+    "meta" : {
+        "label": "Project Checks Filter",
+        "description": "Define Filters on the Projet Checks to run",
+        "icon": "fas fa-puzzle-piece"
+    },
+
+    "defaultDefinableInline": true,
+    "defaultDefinableAtProjectLevel": true,
+
+    "pluginParams": [],
+    
+    "params": [
+        {
+          "type": "MULTISELECT",
+          "name": "project_check_categories",
+          "label": "Select Project Check Categories to run",
+          "defaultValue" : ["FLOW","AUTOMATION", "DOCUMENTATION", "CODE", "PERFORMANCE", "ROBUSTNESS", "API_SERVICE", "DEPLOYMENT"],
+          "selectChoices": [
+            { "value": "FLOW", "label": "FLOW"},
+            { "value": "AUTOMATION", "label": "AUTOMATION"},
+            { "value": "DOCUMENTATION", "label": "DOCUMENTATION"},
+            { "value": "CODE", "label": "CODE"},
+            { "value": "PERFORMANCE", "label": "PERFORMANCE"},
+            { "value": "ROBUSTNESS", "label": "ROBUSTNESS"},
+            { "value": "API_SERVICE", "label": "API_SERVICE"},
+            { "value": "DEPLOYMENT", "label": "DEPLOYMENT"}
+          ]
+        },
+        {
+            "name": "use_llm",
+            "label": "Run LLM checks",
+            "description": "Run LLM powered project checks",
+            "defaultValue": false,
+            "type": "BOOLEAN"
+        },
+        {
+            "name": "llm_id",
+            "label": "LLM ID",
+            "type": "STRING",
+            "description": "LLM ID to use for checks that require an LLM",
+            "visibilityCondition": "model.use_llm"
+        },
+        {
+            "name": "use_plugin_usage",
+            "label": "Run Plugin Usage Assessments",
+            "type": "BOOLEAN",
+            "description": "Run Assessment that require plugin usage to be computed (Computationally intensive on big DSS instances)",
+            "defaultValue": true,
+            "mandatory": true
+        },
+        {
+            "name": "use_fs",
+            "label": "Run FS Assessments",
+            "type": "BOOLEAN",
+            "description": "Run Assessments that leverage the File System (requires PAT to run locally)",
+            "defaultValue": true,
+            "mandatory": true
+        },
+        {
+            "name": "use_project_check_white_list",
+            "label": "Use Project Check White List",
+            "type": "BOOLEAN",
+            "description": "Explicitly select the list of checks to run",
+            "defaultValue": false,
+            "mandatory": true
+        },
+        {
+            "name": "project_check_white_list",
+            "label": "Project Checks White List",
+            "type": "STRINGS",
+            "description": "List of Project Checks to run (all others will be ignored)",
+            "mandatory": true,
+            "visibilityCondition": "model.use_project_check_white_list"
+        }
+    ]
+}
