@@ -1,0 +1,67 @@
+/* This file is the descriptor for the python runnable instance-advisor */
+{
+    "meta": {
+        "label": "Batch Project Assessment Tool",
+        "description": "Run the Project Assessment Tool on multiple projects at once",
+        "icon": "icon-bar-chart"
+    },
+
+    "impersonate": false,
+
+    "params": [
+        {
+            "name": "folder_id",
+            "label": "Project Folder ID",
+            "type": "STRING",
+            "defaultValue" : "",
+            "description": "Folder ID to restrict the project search (leave empty to consider all projects.)",
+            "mandatory": true
+        },
+        {
+            "name": "check_report_dataset",
+            "label": "Check Report Dataset",
+            "type": "DATASET",
+            "description": "PAT Check logging dataset",
+            "canSelectForeign": true,
+            "canCreateDataset": true,
+            "markCreatedAsBuilt": true,
+            "mandatory": true
+        },
+        {
+            "name": "metric_report_dataset",
+            "label": "Metric Report Dataset",
+            "type": "DATASET",
+            "description": "PAT Metric logging dataset",
+            "canSelectForeign": true,
+            "canCreateDataset": true,
+            "markCreatedAsBuilt": true,
+            "mandatory": true
+        },
+        {
+            "name": "project_check_config_preset",
+            "label": "Project check config",
+            "type": "PRESET",
+            "parameterSetId": "project-check-config",
+            "mandatory": true
+        },
+        {
+            "name": "project_check_filter_preset",
+            "label": "Project check filter",
+            "type": "PRESET",
+            "parameterSetId": "project-check-filter",
+            "mandatory": true
+        }
+    ],
+
+    "permissions": [],
+    
+    "resultType": "HTML",
+
+    "resultLabel": "my production",
+
+    "extension": "txt",
+
+    "mimeType": "text/plain",
+
+    "macroRoles": []
+}

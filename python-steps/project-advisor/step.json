@@ -1,0 +1,88 @@
+/* This file is the descriptor for the Custom python step project-advisor */
+{
+    "meta" : {
+        "label": "Project Assessment Tool",
+        "description": "Run automatic project checks",
+        "icon": "icon-check"
+    },
+
+    "params": [
+        {
+            "name": "override_default_project",
+            "label": "Override Default Project",
+            "type": "BOOLEAN",
+            "description": "Override the Default project with another project",
+            "defaultValue" : false,
+            "mandatory": true
+        },
+        {
+            "name": "project_key",
+            "label": "Project Key",
+            "type": "STRING",
+            "description": "Set the project to run the PAT on",
+            "defaultValue" : "",
+            "visibilityCondition": "model.override_default_project",
+            "mandatory": true
+        },
+        
+        {
+            "name": "check_report_dataset",
+            "label": "Check Report Dataset",
+            "type": "DATASET",
+            "description": "Check logging dataset",
+            "canSelectForeign": true,
+            "canCreateDataset": true,
+            "markCreatedAsBuilt": true,
+            "mandatory": true
+        },
+        {
+            "name": "metric_report_dataset",
+            "label": "Metric Report Dataset",
+            "type": "DATASET",
+            "description": "PAT Metric logging dataset",
+            "canSelectForeign": true,
+            "canCreateDataset": true,
+            "markCreatedAsBuilt": true,
+            "mandatory": true
+        },
+        {
+            "name": "project_check_config_preset",
+            "label": "Check config",
+            "type": "PRESET",
+            "parameterSetId": "project-check-config",
+            "mandatory": true
+        },
+        {
+            "name": "project_check_filter_preset",
+            "label": "Check filter",
+            "type": "PRESET",
+            "parameterSetId": "project-check-filter",
+            "mandatory": true
+        },
+        {
+            "name": "check_project_score",
+            "label": "Check Project Score",
+            "type": "BOOLEAN",
+            "description": "Fail step when project score is below threshold",
+            "defaultValue" : false,
+            "mandatory": true
+        },
+        {
+            "name": "project_score_threshold",
+            "label": "Project Score Threshold",
+            "type": "DOUBLE",
+            "description": "Set threshold between 0 and 1",
+            "defaultValue" : 0.7,
+            "visibilityCondition": "model.check_project_score",
+            "mandatory": true
+        },
+        {
+            "name": "generate_dashboard_project_report",
+            "label": "Generate Dashboard Report",
+            "type": "BOOLEAN",
+            "description": "Generate a DSS Dashboard report for the project",
+            "defaultValue" : false,
+            "mandatory": true
+        }
+    ]
+}

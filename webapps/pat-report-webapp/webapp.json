@@ -1,0 +1,33 @@
+// This file is the descriptor for webapp instance-report-webapp
+{
+    "meta": {
+        "label": "Instance Report [Deprecated]",
+        "description": "Full Instance PAT Report",
+        "icon": "icon-bar-chart"
+    },
+
+    "baseType": "DASH", // WARNING: do not change
+    "hasBackend": "true",
+    "noJSSecurity": "true",
+    "standardWebAppLibraries": null,
+
+    "params": [
+        {
+            "name": "check_dataset",
+            "type": "DATASET",
+            "label": "Check Report Dataset",
+            "description": "Historical Full Instance Check Report Dataset",
+            "mandatory": true
+        },
+        {
+            "name": "metric_dataset",
+            "type": "DATASET",
+            "label": "Metric Report Dataset",
+            "description": "Historical Full Instance Metric Report Dataset",
+            "mandatory": true
+        }
+    ],
+
+
+    "roles": []
+}

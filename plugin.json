@@ -1,0 +1,144 @@
+{
+    "id": "instance-insights",
+    "version": "1.5.0",
+    "meta": {
+        "label": "PAT - (Project Assessment Tool)",
+        "category": "DSS Administrative tasks",
+        "description": "Automatic DSS Project Review Tools",
+        "author": "Dataiku (Pierre PETRELLA)",
+        "icon": "icon-cogs",
+        "licenseInfo": "Apache Software License",
+        "url": "https://www.dataiku.com/product/plugins/instance-insights/",
+        "tags": [
+            "Insighs","Admin","Automation", "Assessment"
+        ],
+        "supportLevel": "NOT_SUPPORTED"
+    },
+    "params": [
+          {
+              "name": "deployment_method",
+              "label": "Deployment Method",
+              "type": "SELECT",
+              "selectChoices" : [
+                  { "value": "none", "label": "None"},
+                  { "value": "manual", "label": "Manual"},
+                  { "value": "custom", "label": "Custom"},
+                  { "value": "fm-gcp", "label": "Cloud Stacks GCP"},
+                  { "value": "fm-azure", "label": "Cloud Stacks Azure"},
+                  { "value": "fm-aws", "label": "Cloud Stacks AWS"}
+              ],
+              "defaultValue" : "none"
+          },
+          
+          {
+              "name": "deployer_host",
+              "label": "Deployer Host",
+              "type": "STRING",
+              "mandatory": true,
+              "visibilityCondition": "model.deployment_method == 'manual'"
+          },           
+          {
+              "name": "deployer_api_key",
+              "label": "Deployer API Key",
+              "type": "PASSWORD",
+              "mandatory": true,
+              "visibilityCondition": "model.deployment_method == 'manual'"
+          }, 
+          {
+              "name": "has_dev_auto_node",
+              "label": "Has Dev Automation Node",
+              "description": "Select if a Dev Automation Node is used",
+              "defaultValue": true,
+              "type": "BOOLEAN",
+              "visibilityCondition": "model.deployment_method == 'manual'"
+          },
+         {
+              "name": "dev_auto_host",
+              "label": "Developement Automation Node Host",
+              "type": "STRING",
+              "mandatory": true,
+              "visibilityCondition": "model.deployment_method == 'manual' && model.has_dev_auto_node"
+          },           
+          {
+              "name": "dev_auto_api_key",
+              "label": "Developement Automation Node API Key",
+              "type": "PASSWORD",
+              "mandatory": true,
+              "visibilityCondition": "model.deployment_method == 'manual' && model.has_dev_auto_node"
+          },
+          {
+              "name": "has_test_auto_node",
+              "label": "Has Test Automation Node",
+              "description": "Select if a Test Automation Node is used",
+              "defaultValue": true,
+              "type": "BOOLEAN",
+              "visibilityCondition": "model.deployment_method == 'manual'"
+          },
+          {
+              "name": "test_auto_host",
+              "label": "Test Automation Node Host",
+              "type": "STRING",
+              "mandatory": true,
+              "visibilityCondition": "model.deployment_method == 'manual' && model.has_test_auto_node"
+          },           
+          {
+              "name": "test_auto_api_key",
+              "label": "Test Automation Node API Key",
+              "type": "PASSWORD",
+              "mandatory": true,
+              "visibilityCondition": "model.deployment_method == 'manual' && model.has_test_auto_node"
+          },
+          {
+              "name": "has_prod_auto_node",
+              "label": "Has Prod Automation Node",
+              "description": "Select if a Prod Automation Node is used",
+              "defaultValue": true,
+              "type": "BOOLEAN",
+              "visibilityCondition": "model.deployment_method == 'manual'"
+          },
+          {
+              "name": "prod_auto_host",
+              "label": "Production Automation Node Host",
+              "type": "STRING",
+              "mandatory": true,
+              "visibilityCondition": "model.deployment_method == 'manual' && model.has_prod_auto_node"
+          },           
+          {
+              "name": "prod_auto_api_key",
+              "label": "Production Automation Node API Key",
+              "type": "PASSWORD",
+              "mandatory": true,
+              "visibilityCondition": "model.deployment_method == 'manual' && model.has_prod_auto_node"
+          },
+          {
+              "name": "fm_host",
+              "label": "host",
+              "type": "STRING",
+              "mandatory": true,
+              "visibilityCondition": "model.deployment_method == 'fm-gcp' || model.deployment_method == 'fm-azure' || model.deployment_method == 'fm-aws'"
+          },
+          {
+              "name": "fm_api_key_id",
+              "label": "FM api key id",
+              "type": "STRING",
+              "mandatory": true,
+              "visibilityCondition": "model.deployment_method == 'fm-gcp' || model.deployment_method == 'fm-azure' || model.deployment_method == 'fm-aws'"
+          },
+          {
+              "name": "fm_api_key_secret",
+              "label": "FM api key secret",
+              "type": "PASSWORD",
+              "mandatory": true,
+              "visibilityCondition": "model.deployment_method == 'fm-gcp' || model.deployment_method == 'fm-azure' || model.deployment_method == 'fm-aws'"
+          },
+          {
+              "name": "verify_ssl_certificate",
+              "label": "verify SSL certificate",
+              "type": "BOOLEAN",
+              "mandatory": true,
+              "default" : true,
+              "visibilityCondition": "model.deployment_method != 'none'"
+          }
+    ]
+    
+}
